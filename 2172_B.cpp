@@ -10,6 +10,17 @@ using namespace std;
 //      p1            p2      p3
 // 0 --------------------------------- 10
 
+/*
+Constraint 
+1≤n≤2×10e5
+1≤m≤2×10e5
+1≤ℓ≤10e9
+1≤y<x≤10e6
+0≤si<ti≤ℓ
+0≤pi≤ℓ
+
+*/
+
 int main(){
     
     int n, m, l, x, y; cin>>n>>m>>l>>x>>y;
