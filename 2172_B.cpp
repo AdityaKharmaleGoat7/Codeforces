@@ -29,6 +29,8 @@ int main(){
     // y > x can be --> Can he catch multiple buses if so
     // at max one bus --> speed of every bus is same
 
+    
+
     vector<pair<int,int>> st;
     vector<int> p;
 
