@@ -4,7 +4,6 @@ Author: Aditya Kharmale
 #include <bits/stdc++.h>
 
 using namespace std;
-//   
 //      0-3     4-5        6-10
 //  (       )   ( ) (                 )
 //      p1            p2      p3
@@ -18,7 +17,6 @@ Constraint
 1≤y<x≤10e6
 0≤si<ti≤ℓ
 0≤pi≤ℓ
-
 */
 
 int main(){
@@ -26,22 +24,48 @@ int main(){
     int n, m, l, x, y; cin>>n>>m>>l>>x>>y;
     
     // n == # of buses, m == # of people, l == total distance, x == bus speed, y == hoooman speed
-    // y > x can be --> Can he catch multiple buses if so
+    // y > x can be --> Can he catch multiple buses if so --> NOT TRUE
     // at max one bus --> speed of every bus is same
 
-    
 
     vector<pair<int,int>> st;
     vector<int> p;
-
-    while(n--){
+    int n1 = n, m1 = m;
+    while(n1--){
         int a, b; cin>>a>>b;
         st.push_back({a,b});
     }
-    while(m--){
+    while(m1--){
         int a; cin>>a;
         p.push_back(a);
     }
+
+    sort(st.begin(), st.end());
+    // sort(p.begin(), p.end());
+
+    vector<float> res;
+
+for(int i = 0;i < m; i++){
+    float r = float(l - p[i])/float(y);     // initial value (maybe time / remaining dist?)
+
+    for(int j = 0; j < n; j++){
+        if(p[i] < st[j].first || p[i] >= st[j].second)     // bus start is ahead of person
+            break;
+
+        float val = float(st[j].second - st[j].first) / float(x);
+        r = min(r, val + float(l-st[j].second)/float(y));   // update instead of overwrite
+    }
+
+    res.push_back(r);       // push final result only once
+}
+
+int o = 0;
+while(m--){
+    cout<<res[0]<<" ";
+    o++;
+}
+
+cout<<endl;
 
 
     return 0;
