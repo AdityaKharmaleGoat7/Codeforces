@@ -46,22 +46,26 @@ int main(){
     vector<float> res;
 
 for(int i = 0;i < m; i++){
-    float r = float(l - p[i])/float(y);     // initial value (maybe time / remaining dist?)
+    float r = float(l - p[i])/float(y);   
 
     for(int j = 0; j < n; j++){
-        if(p[i] < st[j].first || p[i] >= st[j].second)     // bus start is ahead of person
+        if(p[i] < st[j].first)     
             break;
+        
+        if(p[i] >= st[j].second){
+            continue;
+        }
 
         float val = float(st[j].second - st[j].first) / float(x);
-        r = min(r, val + float(l-st[j].second)/float(y));   // update instead of overwrite
+        r = min(r, val + float(l-st[j].second)/float(y));  
     }
 
-    res.push_back(r);       // push final result only once
+    res.push_back(r);       
 }
 
 int o = 0;
 while(m--){
-    cout<<res[0]<<" ";
+    cout<<res[o]<<" ";
     o++;
 }
 
