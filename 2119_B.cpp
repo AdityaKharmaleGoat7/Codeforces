@@ -14,7 +14,7 @@ bool canMakeZero(int* arr, int idx, int n, int sum) {
 
 
 int main(){
-    
+
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
@@ -27,6 +27,7 @@ int main(){
     long long px, py, qx, qy;
     cin >> px >> py >> qx >> qy;
 
+    // hypot returns the euclidean distance
     long double d = hypot((long double)(px - qx), (long double)(py - qy));
 
     long double L = 0.0L, R = 0.0L;
