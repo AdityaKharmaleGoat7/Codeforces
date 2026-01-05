@@ -34,12 +34,9 @@ int main(){
 
     for (int i = 0; i < n; i++) {
         long double a;
-        cin >> a;
-
-        long double newR = R + a;
-        long double newL = max({0.0L, L - a, a - R});
-        L = newL;
-        R = newR;
+        cin >> a;      
+        L = max({0.0L, L - a, a - R});
+        R = R + a;
     }
 
     const long double EPS = 1e-12L;
