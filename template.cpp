@@ -6,7 +6,6 @@ Author: Aditya Kharmale
 #define ll long long
 
 int gcd(int a, int b){
-
     while(a > 0){
         int rem = b%a;
         b = a;
@@ -25,3 +24,10 @@ int main(){
     
 return 0;
 }
+
+/*
+<< --> x.2^k
+>> --> x/2^k
+
+n | (1<<x) --> setting of the (x+1)th bit in 
+*/

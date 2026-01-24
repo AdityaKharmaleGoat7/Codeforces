@@ -18,8 +18,8 @@ int gcd(int a, int b){
 
 using namespace std;
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+   ios::sync_with_stdio(false);
+   cin.tie(nullptr);
     int t; cin>>t;
     while(t--){
         int n; cin>>n;
